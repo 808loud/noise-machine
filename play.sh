@@ -2,9 +2,7 @@
 
 len='8:00:00'
 
-if [ "$1" != '' ]; then
-  len=$1
-fi
+export AUDIODRIVER=alsa
+export AUDIODEV=hw:0,0
 
-play -t sl - synth $len  pinknoise \ 
-  band -n 1200 200 tremolo 20 .1 < /dev/zero
+play -c 2 -b 16 -r 41000 -t sl - synth $len brownnoise band -n 4000 2500 tremolo 60 5 < /dev/zero
