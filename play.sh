@@ -1,6 +1,6 @@
 #!/bin/sh
 
-len='8:00:00'
+len='12:00:00'
 
 export AUDIODRIVER=alsa
 export AUDIODEV=hw:0,0
