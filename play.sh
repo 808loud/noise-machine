@@ -1,8 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
-len='12:00:00'
+# Going to use bluetooth dongle instead, so commenting out these lines for now
+#export AUDIODRIVER=alsa
+#export AUDIODEV=hw:0,0
 
-export AUDIODRIVER=alsa
-export AUDIODEV=hw:0,0
-
-play -c 2 -b 16 -r 41000 -t sl - synth $len brownnoise band -n 4000 2500 tremolo 60 5 < /dev/zero
+# play -c $numberOfChannels -b $bitRate -r sampleRate -t sl - synth $duration brownnoise tremolo $tremoloSpeed $tremoloDepth gain $gainDecibels < $outputFile
+play -c 2 -b 16 -r 44.1k -t sl - synth 12:00:00 brownnoise tremolo 11 0.5 gain -9 < /dev/zero
