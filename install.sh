@@ -1,8 +1,5 @@
 #!/bin/sh
 
-
-#( crontab -l ; echo "0 21 * * * /bin/tester" ) | crontab -
-
 # store string of location where this script was called from
 DIR="$( cd "$(dirname $0)" && pwd )"
 
