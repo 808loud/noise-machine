@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# set display variable so sound works
+#export DISPLAY=:0
+
 # Going to use bluetooth dongle instead of raspi analog audio output, so commenting out these lines for now
 #export AUDIODRIVER=alsa
 #export AUDIODEV=hw:0,0
