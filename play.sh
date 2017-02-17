@@ -1,8 +1,11 @@
 #!/bin/bash
 
-# Going to use bluetooth dongle instead, so commenting out these lines for now
+# Going to use bluetooth dongle instead of raspi analog audio output, so commenting out these lines for now
 #export AUDIODRIVER=alsa
 #export AUDIODEV=hw:0,0
 
-# play -c $numberOfChannels -b $bitRate -r sampleRate -t sl - synth $duration brownnoise tremolo $tremoloSpeed $tremoloDepth gain $gainDecibels < $outputFile
-/usr/bin/play -c 2 -b 16 -r 44.1k -n synth 12:00:00 brownnoise fade q 5 -0 tremolo 11 0.5 gain -15 < /dev/zero
+# --null is the input file needed to generate random noise (using synth)
+# tremolo $tremoloSpeed $tremoloDepth
+# gain $gainDecibels
+# output is piped to /dev/zero as we don't need sox to generate a file
+/usr/bin/play --channels 2 --rate 44.1k --null synth 12:00:00 brownnoise fade q 5 -0 tremolo 11 0.5 gain -15 < /dev/zero
